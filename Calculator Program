@@ -1,0 +1,126 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Calculator extends JFrame implements ActionListener{
+JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,eq,min,plus,mul,div,mod;
+JTextField t1;
+char op;
+int n1,n2,n3;
+	public Calculator()
+	{
+		setSize(400,400);
+		setVisible(true);
+		setLayout(new FlowLayout());
+		b1=new JButton("1");
+		b2=new JButton("2");
+		b3=new JButton("3");
+		b4=new JButton("4");
+		b5=new JButton("5");
+		b6=new JButton("6");
+		b7=new JButton("7");
+		b8=new JButton("8");
+		b9=new JButton("9");
+		b0=new JButton("0");
+		eq=new JButton("=");
+		min=new JButton("-");
+		plus=new JButton("+");
+		mul=new JButton("*");
+		div=new JButton("/");
+		mod=new JButton("%");
+		t1=new JTextField(20);
+		add(t1);
+		add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(b7);
+		add(b8);add(b9);add(b0);add(plus);add(min);add(div);add(mul);
+		add(mod);add(eq);
+		
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		b4.addActionListener(this);
+		b5.addActionListener(this);
+		b6.addActionListener(this);
+		b7.addActionListener(this);
+		b8.addActionListener(this);
+		b9.addActionListener(this);
+		b0.addActionListener(this);
+		mul.addActionListener(this);
+		plus.addActionListener(this);
+		min.addActionListener(this);
+		div.addActionListener(this);
+		mod.addActionListener(this);
+		eq.addActionListener(this);
+	}
+	public static void main(String[] args) {
+new Calculator();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		double n;
+		if(e.getSource()==b0)
+			t1.setText(t1.getText()+"0");
+		if(e.getSource()==b1)
+			t1.setText(t1.getText()+"1");
+		if(e.getSource()==b2)
+			t1.setText(t1.getText()+"2");
+		if(e.getSource()==b3)
+			t1.setText(t1.getText()+"3");
+		if(e.getSource()==b4)
+			t1.setText(t1.getText()+"4");
+		if(e.getSource()==b5)
+			t1.setText(t1.getText()+"5");
+		if(e.getSource()==b6)
+			t1.setText(t1.getText()+"6");
+		if(e.getSource()==b7)
+			t1.setText(t1.getText()+"7");
+		if(e.getSource()==b8)
+			t1.setText(t1.getText()+"8");
+		if(e.getSource()==b9)
+			t1.setText(t1.getText()+"9");
+		if(e.getSource()==plus)
+		{
+			op='+';
+			n1=Integer.parseInt(t1.getText());
+			t1.setText("");
+		}
+		if(e.getSource()==min)
+		{
+			op='-';
+			n1=Integer.parseInt(t1.getText());
+			t1.setText("");
+		}
+		if(e.getSource()==div)
+		{
+			op='/';
+			n1=Integer.parseInt(t1.getText());
+			t1.setText("");
+		}
+		if(e.getSource()==mul)
+		{
+			op='*';
+			n1=Integer.parseInt(t1.getText());
+			t1.setText("");
+		}
+		if(e.getSource()==mod)
+		{
+			op='%';
+			n1=Integer.parseInt(t1.getText());
+			t1.setText("");
+		}
+		if(e.getSource()==eq)
+		{
+			n2=Integer.parseInt(t1.getText());
+			if(op=='+')
+					n3=n1+n2;
+			if(op=='-')
+				n3=n1-n2;
+			if(op=='*')
+				n3=n1*n2;
+			if(op=='/')
+				n3=n1/n2;
+			if(op=='%')
+				n3=n1%n2;
+			t1.setText(""+n3);
+		}
+	}
+
+}
