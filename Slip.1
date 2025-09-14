@@ -1,4 +1,3 @@
-package Parth;
 
 public class PrimeNo {
     
@@ -41,3 +40,63 @@ public class PrimeNo {
         return true;
     }
 }
+
+--------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+abstract class staff{
+	protected int id;
+	protected String name;
+	
+	abstract void display();
+	
+	public staff(int id,String name){
+		this.id=id;
+		this.name=name;
+	}
+}
+
+class officestaff extends staff{
+	
+	String depart;
+	public officestaff(int id, String name,String depart) {
+		super(id, name);
+		this.depart=depart;
+	}
+
+	@Override
+	void display() {
+		System.out.println(id+"\t"+name+" \t"+depart);
+		
+	}
+	
+}
+
+public class staf {
+
+	public static void main(String[] args) {
+		int n,i,id;
+		String name,depart;
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Total No of Employee: ");
+		n=sc.nextInt();
+		
+		officestaff os[]=new officestaff[n];
+		for(i=0; i<os.length;i++) {
+			System.out.println("Enter "+i+" Staff Deatils: ");
+			id=sc.nextInt();
+			name=sc.next();
+			depart=sc.next();
+			os[i]=new officestaff(id,name,depart);
+		}
+		System.out.println("\nID\tName\tDepartment\n");
+		for(i=0;i<os.length;i++) {
+			os[i].display();
+		}
+
+	}
+
+}
+
