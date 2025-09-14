@@ -1,0 +1,44 @@
+/*Write a program to accept ‘n’ name of cities from the user and sort them in ascending
+order.*/
+
+package Parth;
+
+import java.util.Scanner;
+
+public class Cities {
+
+	public static void main(String[] args) {
+
+		int i,n;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Total number of Cities: ");
+		n=sc.nextInt();
+		String a[]=new String[n];
+		System.out.println("Enter Cities Name; ");
+		for(i=0;i<n;i++) {
+			a[i]=sc.next();
+		}
+		
+		System.out.println();
+		
+		for (int pass = 1; pass < n; pass++) {
+            for (i = 0; i < n - pass; i++) {
+                if (a[i].compareTo(a[i + 1]) > 0) {
+                    
+                    String temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                }
+            }
+        }
+        
+        System.out.println("Sorted Cities in ascending order: ");
+        for (i = 0; i < n; i++) {
+            System.out.println(" " + a[i]);
+        }
+
+	}
+}
+
+------------------------------------------------------------------------------------------
+
