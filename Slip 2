@@ -1,0 +1,21 @@
+
+public class BMI {
+
+	public static void main(String[] args) {
+		String fname,lname;
+		double weight,height;
+		
+		fname=args[0];
+		lname=args[1];
+		weight=Double.parseDouble(args[2]);
+		height=Double.parseDouble(args[3]);
+		
+		double bmi;
+		
+		bmi=weight / (height * height);
+		
+		System.out.println("BMI of "+fname+" "+lname+" is"+bmi);
+	}
+
+}
+---------------------------------------------------------------------------
