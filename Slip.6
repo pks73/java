@@ -22,3 +22,75 @@ public class employee {
 	}
 
 }
+
+-------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+class or {
+	int id;
+	String des;
+	void getdata() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter id and description: ");
+		id=sc.nextInt();
+		des=sc.next();
+	}
+}
+
+
+class purchaseorder extends or{
+	String name;
+	void getname() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Customer Name: ");
+		name=sc.next();
+	}
+	void display() {
+		System.out.println(id+"\t"+des+"\t"+name);
+	}
+	
+}
+
+
+class salesorder extends or{
+	String vname;
+	void getname() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Vendor Name: ");
+		vname=sc.next();
+	}
+	void display() {
+		System.out.println(id+"\t"+des+"\t"+vname);
+	}
+}
+
+
+public class Heirachical {
+
+	public static void main(String[] args) {
+		int i;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter 3  Purchase  Order and Sales Order: ");
+		purchaseorder po[]=new purchaseorder[3];
+		salesorder so[]=new salesorder[3];
+		System.out.println("Enter Purchase Order data: ");
+		for(i=0;i<po.length;i++) {
+			po[i]=new purchaseorder();
+			po[i].getdata();
+			po[i].getname();
+		}
+		
+		System.out.println("Purchase Order data is");
+		System.out.println("ID\tDes\tName\n");
+		for(i=0;i<po.length;i++)
+			po[i].display();
+		System.out.println();
+		System.out.println("Sales Order Data is: ");
+		System.out.println("ID\tDes\tName\n");
+		for(i=0;i<3;i++)
+			so[i].display();
+
+	}
+
+}
