@@ -42,55 +42,53 @@ public class Cities {
 
 import java.util.Scanner;
 
-class MyException extends Exception {
-    public MyException(String args) {
-        super(args);
-    }
+class MyException extends Exception{
+	public MyException(String args) {
+		super(args);
+	}
 }
 
-public class rough {
-    
-    class Patient {
-        String pname;
-        int age;
-        double olevel, hrct;
-        
-        void getdata() {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Enter Patient Details: ");
-            System.out.print("Name: ");
-            pname = sc.next();
-            System.out.print("Age: ");
-            age = sc.nextInt();
-            System.out.print("Oxygen Level: ");
-            olevel = sc.nextDouble();
-            System.out.print("HRCT Report: ");
-            hrct = sc.nextDouble();
-        }
-        
-        void check() {
-            try {
-                if (olevel < 95 && hrct > 10) {
-                    throw new MyException("Patient is Covid Positive(+) and Need to Hospitalized");
-                } else {
-                    System.out.println("\nPatient Information:");
-                    System.out.println("Name: " + pname);
-                    System.out.println("Age: " + age);
-                    System.out.println("Oxygen Level: " + olevel + "%");
-                    System.out.println("HRCT Report: " + hrct);
-                    System.out.println("Patient is COVID Negative(-)");
-                }
-            } catch (MyException me) {
-                System.out.println("\n" + me);
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        rough covid = new rough();
-        Patient patient = covid.new Patient(); 
-        
-        patient.getdata();
-        patient.check();
-    }
+class cov {
+		String pname;
+		int age;
+		double olevel,hrct;
+		
+		void getdata()
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter Patient Details Name, Age, Oxy Level, HRCT: ");
+			pname=sc.next();
+			age=sc.nextInt();
+			olevel=sc.nextDouble();
+			hrct=sc.nextDouble();
+		}
+		
+		void check() 
+		{
+			try 
+			{
+				if(olevel <95 && hrct >10) 
+				{
+					throw new MyException("PatienrIsCovidPositive");
+				}
+				else 
+				{
+					System.out.println("Name: "+pname+"\nAge: "+age+"\nOxy Level: "+olevel+"\nHRCT: "+hrct);
+				}
+			}
+			catch(MyException me) 
+			{
+				System.out.println(me);
+			}
+		}
 }
+class Main1{	
+	public static void main(String[] args) {
+
+		cov c=new cov();
+		c.getdata();
+		c.check();
+
+	}
+}
+
