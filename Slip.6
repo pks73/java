@@ -1,0 +1,24 @@
+
+import java.util.Scanner;
+
+public class employee {
+
+	public static void main(String[] args) {
+		
+		String ename,edesi;
+		int id;
+		double esal;
+		
+		System.out.println("Enter Employee  Name, Designation, ID, Sal:");
+		Scanner sc=new Scanner(System.in);
+		ename=sc.next();
+		edesi=sc.next();
+		id=sc.nextInt();
+		esal=sc.nextDouble();
+		
+		System.out.println("EID\tName\tDesig\tSal");
+		System.out.println(id+"\t"+ename+"\t"+edesi+"\t"+esal);
+
+	}
+
+}
