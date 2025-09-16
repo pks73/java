@@ -19,3 +19,66 @@ public class BMI {
 
 }
 ---------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class playergame {
+
+	String name;
+	int noi,nt,trun;
+	double avg;
+	
+	void getplayer() {
+		System.out.println("Enter Player data: ");
+		Scanner sc=new Scanner(System.in);
+		name=sc.next();
+		noi=sc.nextInt();
+		nt=sc.nextInt();
+		trun=sc.nextInt();
+	}
+	
+	void display() {
+		System.out.println(name+"\t"+noi+"\t"+nt+"\t"+trun+"\t"+avg);
+	}
+	
+	static void avg(playergame pg[]) {
+		for(int i=0;i<pg.length;i++) {
+			pg[i].avg=pg[i].trun / pg[i].noi;
+		}
+	}
+	
+	static void sort(playergame pg[]) {
+		int p,i;
+		playergame p1;
+		for(p=1;p<pg.length -p ;p++) {
+			for(i=0;i<pg.length - p ; i++) {
+				if(pg[i].avg > pg[i+1].avg) {
+					p1=pg[i];
+					pg[i]=pg[i+1];
+					pg[i+1]=p1;
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+
+		int n,i;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Total Player: ");
+		n=sc.nextInt();
+		playergame pg[]=new playergame[n];
+		for(i=0;i<n;i++) {
+			pg[i]=new playergame();
+			pg[i].getplayer();
+		}
+		
+		avg(pg);
+		sort(pg);
+		System.out.println("Name\tINN\tNOT OUT \tRUNS\tAVG");
+		for(i=0;i<n;i++)
+			pg[i].display();
+
+	}
+
+}
