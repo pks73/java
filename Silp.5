@@ -1,4 +1,5 @@
 
+--------------------------------------------------------
 
 import java.util.Scanner;
 
@@ -7,11 +8,16 @@ public class addmul {
 	public static void main(String[] args) {
 		
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Row and Col size");
+		System.out.println("Enter the Row and Col of 1st Matrix: ");
+		int ch;
 		int r=sc.nextInt();
 		int c=sc.nextInt();
 		int a[][]=new int[r][c];
-		int b[][]=new int[r][c];
+		int r1,c1;
+		System.out.println("Enter Row and col of 2nd Matrix:");
+		r1=sc.nextInt();
+		c1=sc.nextInt();
+		int b[][]=new int[r1][c1];
 		int cc[][]=new int [r][c];
 		
 		System.out.println("Enter 1st Matrix  : ");
@@ -29,32 +35,69 @@ public class addmul {
 			}
 			System.out.println();
 		}
-		
 		System.out.println("Enter 2nd  Matrix  : ");
 		
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
+		for(int i=0;i<r1;i++) {
+			for(int j=0;j<c1;j++) {
 				 b[i][j]=sc.nextInt(); 
 			}
 		}
 		
 		System.out.println("You 2nd Matrix is :");
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
+		for(int i=0;i<r1;i++) {
+			for(int j=0;j<c1;j++) {
 				 System.out.print("\t"+b[i][j]);
 			}
 			System.out.println();
 		}
-		
-		
-		System.out.println("Addition of matrix is :");
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
-				cc[i][j]=a[i][j] + b[i][j];
-				 System.out.print("\t"+cc[i][j]);
+		do {
+
+			System.out.println("1.Addition\n2.Multiplicartion\n3.Exit");
+			System.out.println("Enter your chooic: ");
+			ch=sc.nextInt();
+			switch(ch) {
+			case 1: 
+						if(r==r1 && c==c1) {
+							System.out.println("Addition of matrix is :");
+							for(int i=0;i<r;i++) {
+								for(int j=0;j<c;j++) {
+									cc[i][j]=a[i][j] + b[i][j];
+									System.out.print("\t"+cc[i][j]);
+								}
+								System.out.println();
+							}
+						}
+						else
+							System.out.println("Size of row and col of both matrix is not same: ");
+						
+						break;
+			case 2: 
+						if(c==r1) {
+							
+							System.out.println("Multiplication of matrices is:");
+							int  mul[][] = new int[r1][c1];
+							
+							for(int i = 0; i < r1; i++) {
+								for(int j = 0; j < c1; j++) {
+									mul[i][j] = 0;
+									for(int k = 0; k < c1; k++) {
+										mul[i][j] += a[i][k] * b[k][j];
+									}
+									System.out.print("\t" + mul[i][j]);
+								}
+								System.out.println();
+							}
+						}
+							else 
+								System.out.println("Matrix Multiplication is not possibel "
+										+ "beacuse col of 1st matrix is not same to row of 2nd matrix: ");
+							break;
+						
 			}
-			System.out.println();
+		}while(ch!=3);
+		
+		System.out.println("Code Exicute Successfully: ");
 		}
+		
 	}
 
-}
