@@ -25,7 +25,9 @@ public class employee {
 
 -------------------------------------------------------------------------------------
 
+
 import java.util.Scanner;
+
 
 class or {
 	int id;
@@ -81,11 +83,19 @@ public class Heirachical {
 			po[i].getname();
 		}
 		
+		System.out.println("Enter Sales Order data: ");
+		for(i=0;i<po.length;i++) {
+			so[i]=new salesorder();
+			so[i].getdata();
+			so[i].getname();
+		}
+		
 		System.out.println("Purchase Order data is");
 		System.out.println("ID\tDes\tName\n");
 		for(i=0;i<po.length;i++)
 			po[i].display();
 		System.out.println();
+		
 		System.out.println("Sales Order Data is: ");
 		System.out.println("ID\tDes\tName\n");
 		for(i=0;i<3;i++)
