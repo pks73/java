@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+class MyException extends Exception {
+
+	public MyException(String msg) {
+
+		super(msg);
+
+	}
+
+	
+}
+
+public class numberzero {
+
+
+	public static void main(String[] args) {
+
+		int a;
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter the number: ");
+		a= sc.nextInt();
+		
+		try {
+			if(a==0)
+				throw new MyException ("Exception: Number is zero ");
+			
+			else if(a<0)
+				throw new MyException ("Exception: Number is negative: ");
+			
+			else
+			{
+				int f=0;
+				for(int i=2;i<a;i++) {
+					if(a%i==0)
+						f++;
+				}
+				if(f>0)
+					System.out.println("Number is not prime: ");
+				else
+					System.out.println("Number is prime");
+			}
+		}
+		catch(MyException me)
+		{
+			System.out.println(me);
+		}
+
+	}
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
