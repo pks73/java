@@ -36,3 +36,35 @@ public class diagonalsome {
 }
 
 ---------------------------------------------------------------------
+
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class s192{
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("T.Y.B.Sc. Subjects");
+        frame.setSize(400, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        String[] subjects = {"Data Mining", "AI", "Software Engineering", "DBMS", "Networking"};
+        JComboBox<String> combo = new JComboBox<>(subjects);
+        combo.setBounds(50, 30, 150, 25);
+        frame.add(combo);
+
+        JTextField text = new JTextField();
+        text.setBounds(220, 30, 150, 25);
+        frame.add(text);
+
+        combo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                text.setText((String) combo.getSelectedItem());
+            }
+        });
+
+        frame.setVisible(true);
+    }
+}
+
+
