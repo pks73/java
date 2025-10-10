@@ -1,5 +1,53 @@
 
---------------------------------------------------------
+import java.util.Scanner;
+
+class continent{
+	String conname;
+	Scanner sc = new Scanner(System.in);
+	
+	void acceptconti()
+	{
+		System.out.println("Emter continent name: ");
+		conname=sc.next();
+	}
+}
+
+class country extends continent{
+	String counrtyname;
+	
+	void acceptcountry() {
+		System.out.println("Enter country name: ");
+		counrtyname=sc.next();
+	}
+}
+class state extends country{
+	String sname;
+	String place;
+	
+	void acceptstate()
+	{
+		System.out.println("Enter state and place name: ");
+		sname=sc.next();
+		place=sc.next();
+	}
+}
+public class s51 {
+	public static void main(String[] args)
+	{
+		state s = new state();
+		s.acceptconti();
+		s.acceptcountry();
+		s.acceptstate();
+		
+		System.out.println("continent: "+s.conname);
+		System.out.println("country: "+s.counrtyname);
+		System.out.println("state and place: "+s.sname+"  and  "+s.place);
+	}
+	
+
+}
+
+-----------------------------------------------------------------------------------
 
 import java.util.Scanner;
 
