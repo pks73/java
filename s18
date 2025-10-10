@@ -1,0 +1,97 @@
+public class s181{
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("BorderLayout Example");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JButton north = new JButton("NORTH");
+        JButton south = new JButton("SOUTH");
+        JButton east = new JButton("EAST");
+        JButton west = new JButton("WEST");
+        JButton center = new JButton("CENTER");
+        frame.add(north, BorderLayout.NORTH);
+        frame.add(south, BorderLayout.SOUTH);
+        frame.add(east, BorderLayout.EAST);
+        frame.add(west, BorderLayout.WEST);
+        frame.add(center, BorderLayout.CENTER);
+
+        frame.setVisible(true);
+    }
+}
+----------------------------------------------------------------------------
+
+
+
+import java.util.Scanner;
+
+public class Cricket {
+
+	String name;
+	int noi,nt,trun;
+	double avg;
+	void accept() {
+
+		System.out.println("Enter Player data name, number of Innings, not out, total run: ");
+		Scanner sc=new Scanner(System.in);
+		name=sc.next();
+		noi=sc.nextInt();
+		nt=sc.nextInt();
+		trun=sc.nextInt();
+	}
+
+	void display() {
+		System.out.println(name+"|\t"+noi+"|\t"+nt+"|\t\t"+trun+"|\t"+avg);
+}
+
+	static void avg(Cricket c[]) {
+
+		for(int i=0;i<c.length;i++) {
+
+			c[i].avg=c[i].trun / c[i].noi;
+
+		}
+
+	}
+	static void sort(Cricket c[]) {
+		int p,i;
+
+		Cricket temp;
+
+		for(p=1;p<c.length -1 ;p++) {
+
+			for(i=0;i<c.length - p ; i++) {
+
+				if(c[i].avg > c[i+1].avg) {
+
+					temp=c[i];
+
+					c[i]=c[i+1];
+
+					c[i+1]=temp ;
+
+				}
+
+			}
+
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		int n,i;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Total Player: ");
+		n=sc.nextInt();
+		Cricket c[]=new Cricket[n];
+		for(i=0;i<n;i++) {
+		c[i]=new Cricket();
+		c[i].accept();
+
+		}
+		avg(c);
+		sort(c);
+		System.out.println("Name\tINN\tNOT OUT\t\tRUNS\tAVG");
+		for(i=0;i<n;i++)
+		c[i].display();
+}
+}
